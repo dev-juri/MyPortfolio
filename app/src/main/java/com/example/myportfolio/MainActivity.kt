@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +24,21 @@ class MainActivity : AppCompatActivity(), onCLickCallBackListener {
 
         recycler_view.layoutManager = GridLayoutManager(this, 4)
         recycler_view.adapter = MediaAdapter(list, this)
+
+        val name = getIntent().getStringExtra("Name")
+        val desc = getIntent().getStringExtra("Description")
+
+        val nameBox = findViewById<TextView>(R.id.name_text)
+        val bioBox = findViewById<TextView>(R.id.bio_text)
+        val whatIdo = findViewById<TextView>(R.id.work)
+
+        nameBox.text = name
+        bioBox.text = desc
+        work.text = getString(R.string.workByDefault)
+
+
+
+
 
     }
 
